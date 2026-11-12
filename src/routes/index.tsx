@@ -53,22 +53,24 @@ type Entry = {
   example: string;
   scene: string;
   image: string;
+  imagePosition?: string;
 };
 
 // Para trocar a imagem de um verbete, substitua o arquivo com o mesmo nome
 // na pasta src/assets/verbetes/ (ex.: src/assets/verbetes/suinocultura.jpg).
+// Use imagePosition (ex.: "object-top", "object-bottom", "object-center") se precisar ajustar o corte de alguma foto.
 const entries: Entry[] = [
   { term: "Meliponicultura", subtitle: "Meliponiculture", definition: "Criação racional de abelhas nativas sem ferrão para produção de mel, própolis, pólen e polinização de lavouras.", example: "As colmeias dessas abelhas ficam reunidas em um meliponário, na maior parte das vezes em caixas de madeira.", scene: "Abelhas sem ferrão", image: imgMeliponicultura },
   { term: "Suinocultura", subtitle: "Swine husbandry", definition: "Criação e manejo racional de porcos (suínos) voltados à produção de carne, banha e derivados.", example: "As granjas controlam alimentação, água e saúde dos suínos para obter boa produtividade.", scene: "Criação de suínos", image: imgSuinocultura },
   { term: "Piscicultura", subtitle: "Pisciculture", definition: "Ramo da aquicultura dedicado à criação e reprodução de peixes em ambientes controlados (como tanques de terra, tanques-rede ou açudes).", example: "Tilápias e tambacus são criados em tanques escavados no solo e em tanques-rede instalados em açudes.", scene: "Peixes em tanques", image: imgPiscicultura },
   { term: "Ordenhar", subtitle: "To extract milk", definition: "Processo de extração manual ou mecânica do leite das glândulas mamárias de fêmeas em lactação (como vacas, cabras e ovelhas).", example: "A ordenha acontece uma ou duas vezes por dia, sempre com muita higiene para garantir leite de qualidade.", scene: "Extração do leite", image: imgOrdenhar },
-  { term: "Caprinocultura", subtitle: "Caprine production", definition: "Criação de cabras e bodes (caprinos) para produção de leite, carne, couro e derivados.", example: "O leite de cabra é usado para fabricar queijos, iogurtes e outros produtos regionais.", scene: "Criação de caprinos", image: imgCaprinocultura },
+  { term: "Caprinocultura", subtitle: "Caprine production", definition: "Criação de cabras e bodes (caprinos) para produção de leite, carne, couro e derivados.", example: "O leite de cabra é usado para fabricar queijos, iogurtes e outros produtos regionais.", scene: "Criação de caprinos", image: imgCaprinocultura, imagePosition: "object-top" },
   { term: "Inseminação artificial", subtitle: "Artificial insemination", definition: "Técnica de reprodução assistida que consiste no depósito do sêmen do macho no trato reprodutivo da fêmea sem o acasalamento físico direto.", example: "O sêmen pode ser congelado e transportado para outras propriedades, melhorando a genética do rebanho.", scene: "Reprodução assistida", image: imgInseminacao },
   { term: "Calagem", subtitle: "Soil liming", definition: "Prática agrícola de aplicação de calcário no solo para neutralizar a acidez, eliminar o alumínio tóxico e fornecer cálcio e magnésio para as plantas.", example: "A análise do solo indica a quantidade de calcário necessária antes da aplicação.", scene: "Correção do solo", image: imgCalagem },
   { term: "Ruminantes", subtitle: "Ruminants", definition: "Mamíferos herbívoros (como bovinos, ovinos e caprinos) cujo estômago é dividido em compartimentos e que realizam a ruminação (regurgitação e remastigação do alimento).", example: "A vaca mastiga o alimento de novo, em momentos de descanso — o famoso 'ruminar'.", scene: "Ruminação do alimento", image: imgRuminantes },
   { term: "Matriz", subtitle: "Breeding female", definition: "Fêmea reprodutora de bom padrão genético mantida na propriedade com a finalidade de gerar filhotes e manter ou expandir o rebanho.", example: "Uma boa matriz gera filhotes mais resistentes e com melhor ganho de peso.", scene: "Fêmea reprodutora", image: imgMatriz },
   { term: "Método Famacha", subtitle: "Famacha method", definition: "Guia visual da mucosa ocular de ovinos e caprinos para avaliar o grau de anemia e orientar a vermifugação seletiva contra o parasita Haemonchus contortus.", example: "Mucosa ocular clara indica anemia e ajuda o criador a vermifugar apenas os animais necessários.", scene: "Avaliação da anemia", image: imgFamacha },
-  { term: "Rumem", subtitle: "Rumen", definition: "O **rúmen** (ou pança) é a primeira e maior câmara do estômago de ruminantes (como bois, ovelhas e cabras), funcionando como um tanque de fermentação biológica para a digestão de fibras vegetais.", example: "Uma bolsa enorme (em uma vaca adulta, cabe mais de 150 litros) cheia de microrganismos que auxiliam na digestão.", scene: "Rúmem", image: imgRumem },
+  { term: "Rumem", subtitle: "Rumen", definition: "O rúmen é a primeira e maior câmara do estômago de ruminantes (como bois, ovelhas e cabras), funcionando como um tanque de fermentação biológica para a digestão de fibras vegetais.", example: "Uma bolsa enorme (em uma vaca adulta, cabe mais de 150 litros) cheia de microrganismos que auxiliam na digestão.", scene: "Rúmem", image: imgRumem },
   { term: "Vermifugação", subtitle: "Deworming", definition: "Manejo sanitário de controle de endoparasitas em rebanhos via anti-helmínticos. Previne a contaminação do pasto, quadros de anemia e perdas produtivas (carne, leite e ovos), garantindo a saúde do lote.", example: "A dose do vermífugo é calculada pelo peso do animal e aplicada de forma estratégica ao longo do ano.", scene: "Controle de parasitas", image: imgVermifugacao },
   { term: "Apicultura", subtitle: "Apiculture", definition: "Manejo racional de abelhas (especialmente Apis mellifera) voltado à extração sustentável de produtos da colmeia (mel, própolis, cera, geleia real, pólen e apitoxina) e ao aumento da produtividade agrícola por meio da polinização assistida.", example: "O apicultor usa macacão e fumigador para retirar os quadros de mel sem prejudicar as abelhas.", scene: "Manejo de colmeias", image: imgApicultura },
   { term: "Zootecnia", subtitle: "Zootechnics", definition: "Ciência da produção animal que visa otimizar a eficiência, a rentabilidade e o bem-estar dos rebanhos. Integra nutrição, melhoramento genético, reprodução, instalações, sanidade preventiva e gestão econômica dos sistemas produtivos.", example: "O zootecnista calcula a dieta do rebanho leiteiro para aumentar a produção de leite.", scene: "Ciência da produção animal", image: imgZootecnia },
@@ -152,7 +154,7 @@ function Index() {
                   <span className="field-label">Verbete {String(current + 1).padStart(2, "0")}</span>
                   <span className="text-sm font-semibold text-muted-foreground">{current + 1} de {entries.length}</span>
                 </div>
-                <h3 className="mt-7 font-display text-[clamp(2.7rem,6vw,5.5rem)] leading-[0.94]">{entry.term}</h3>
+                <h3 className="mt-7 break-words font-display text-[clamp(2.2rem,4.3vw,4.1rem)] leading-[0.98]">{entry.term}</h3>
                 <p className="mt-3 text-sm font-bold uppercase tracking-[0.16em] text-accent sm:text-base">{entry.subtitle}</p>
                 <p className="mt-5 max-w-2xl text-lg font-medium leading-relaxed sm:text-2xl">{entry.definition}</p>
                 <div className="mt-7 border-l-2 border-accent pl-4 sm:pl-5">
@@ -162,7 +164,11 @@ function Index() {
               </div>
 
               <div className="field-illustration" aria-label={`Ilustração: ${entry.scene}`}>
-                <img src={entry.image} alt={entry.scene} className="absolute inset-0 h-full w-full object-cover" />
+                <img
+                  src={entry.image}
+                  alt={entry.scene}
+                  className={`absolute inset-0 h-full w-full object-cover ${entry.imagePosition ?? "object-center"}`}
+                />
                 <span className="field-caption">{entry.scene}</span>
               </div>
             </article>
