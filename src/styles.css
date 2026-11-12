@@ -251,3 +251,13 @@
   .slide-next, .slide-previous { animation: none; }
   * { transition-duration: 0.01ms !important; }
 }
+
+/* Oculta o selo Powered by Netlify */
+a[href*="netlify.com"][target="_blank"],
+[id*="netlify"],
+[class*="netlify"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
